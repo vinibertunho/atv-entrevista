@@ -1,0 +1,255 @@
+:root {
+  --bg-color: #f6f7fb;
+  --text-color: #222;
+  --primary-color: #2a6f97;
+  --card-bg: #fff;
+  --card-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  --border-radius: 14px;
+  --nav-bg: #fff;
+  --nav-link-color: var(--primary-color);
+  --nav-link-hover: #1e4660;
+  --footer-bg: #eaf1fa;
+  --profile-border: #e1e8f0;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+header {
+  background: var(--nav-bg);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  transition: all 0.3s ease;
+  gap: 2px;
+}
+
+header:hover {
+  box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+}
+
+.header-content {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2px;
+  padding: 0 2rem;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--primary-color);
+  white-space: nowrap;
+  transition: transform 0.3s ease;
+}
+
+header h1:hover {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  text-decoration: none;
+  color: var(--nav-link-color);
+  font-weight: 500;
+  transition: color 0.2s;
+  font-size: 1rem;
+  list-style: none;
+  padding: 0;
+  
+}
+
+.profile-container {
+  display: flex;
+  gap: 2rem;
+  align-items: start;
+  padding: 1rem 0;
+}
+
+.profile-image {
+  flex: 0 0 250px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  border: 2px solid var(--profile-border);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.02);
+}
+
+.profile-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info h2 {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {}
+  .profile-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-image {
+    flex: 0 0 200px;
+    width: 200px;
+    gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0
+  }
+    .profile-info {
+        flex: none;
+    }
+
+nav a {
+  text-decoration: none;
+  color: var(--nav-link-color);
+  font-weight: 500;
+  transition: color 0.2s;
+  font-size: 1rem;
+}
+
+nav a:hover {
+  color: var(--nav-link-hover);
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+#theme-toggle:hover {
+  background: var(--bg-color);
+}
+
+main {
+  max-width: 800px;
+  margin: 2rem auto 2rem auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  margin-bottom: 2rem;
+  padding: 2rem 1.5rem;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.card h2 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+.card ul {
+  padding-left: 1.3rem;
+}
+
+.qa h3 {
+  margin: 1.2rem 0 0.3rem 0;
+  font-size: 1.12rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.qa p {
+  margin: 0 0 0.7rem 0;
+  font-size: 1rem;
+}
+
+footer {
+  background: var(--footer-bg);
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 1rem;
+  color: var(--primary-color);
+  box-shadow: 0 -1px 6px rgba(0,0,0,0.04);
+}
+
+@media (max-width: 600px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  main {
+    padding: 0 0.3rem;
+  }
+
+  .card {
+    padding: 1.2rem 0.6rem;
+  }
+}
+
+/* Tema Escuro */
+body.dark-mode {
+  --bg-color: #1a2230;
+  --text-color: #f6f6f6;
+  --primary-color: #a4d2ff;
+  --card-bg: #242e42;
+  --card-shadow: 0 2px 16px rgba(0,0,0,0.16);
+  --nav-bg: #222b3a;
+  --nav-link-color: #a4d2ff;
+  --nav-link-hover: #6ab1e6;
+  --footer-bg: #1a2230;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  box-shadow: none;
+}
+
+body.dark-mode #theme-toggle:hover {
+  background: #222b3a;
+}
