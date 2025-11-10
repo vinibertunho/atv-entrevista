@@ -183,15 +183,13 @@ header nav a.active::after {
     background-color: white;
     transition: 0.4s;
     border-radius: 50%;
-}
-
-/* Efeito "sol/lua" */
-.slider:before {
+    /* Efeito sol/lua */
     content: '☀️';
     font-size: 14px;
     text-align: center;
     line-height: 20px;
 }
+
 body.dark-mode .slider:before {
     content: '🌙';
 }
@@ -205,55 +203,22 @@ input:checked + .slider:before {
 }
 
 /* --- 7. Conteúdo Principal --- */
-.banner {
-    background-image:
-        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-        url('https://www.google.com/url?sa=i&url=https%3A%2F%2Funisales.br%2Fpresencial%2Fengenharia-de-software%2F&psig=AOvVaw02QDG1w1eMmaOdKZSDaD_x&ust=1762901182242000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCPjvkbvU6JADFQAAAAAdAAAAABAL');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 100px 0;
-    text-align: center;
-    margin-bottom: 40px;
-    animation: fadeIn 1.5s ease;
-}
-.banner h2 {
-    font-size: 3em;
-    font-weight: 700;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-.banner p {
-    font-size: 1.4em;
-    font-weight: 300;
-    opacity: 0.9;
-}
-.cta-button { /* Botão interativo */
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--bg-color);
-    padding: 12px 30px;
-    border-radius: 50px;
-    font-weight: 600;
-    margin-top: 20px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 245, 195, 0.2);
-}
-.cta-button:hover {
-    background-color: var(--accent-color-hover);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 245, 195, 0.4);
-}
-body:not(.dark-mode) .cta-button {
-    color: #fff;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-}
-body:not(.dark-mode) .cta-button:hover {
-    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
+main {
+    padding: 40px 0;
 }
 
 
-/* --- 8. Seções de Conteúdo e Cards --- */
+.fotoEdu {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    float: left;
+    margin: 0 20px 20px 0;
+    border: 6px solid var(--accent-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.5s ease-in-out, filter 0.5s ease;
+    filter: grayscale(20%);
+}
 .content {
     background-color: var(--content-bg);
     padding: 40px;
@@ -261,12 +226,55 @@ body:not(.dark-mode) .cta-button:hover {
     box-shadow: var(--card-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.content:hover {
-    transform: translateY(-5px);
+
+/* --- 8. ESTILOS ESPECÍFICOS DA PÁGINA "SOBRE" --- */
+
+.profile-pic {
+    max-width: 280px;
+    height: auto;
+    border-radius: 50%;
+    float: right; /* Flutua à direita do texto */
+    margin: 0 0 25px 40px; /* Margem para não colar no texto */
+    border: 6px solid var(--accent-color); /* Borda com cor de destaque */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.5s ease-in-out, filter 0.5s ease;
+    filter: grayscale(20%); /* Começa um pouco dessaturada */
 }
 
-.card { /* Estilo de card para as seções */
-    background-color: var(--content-bg);
+/* Animação no hover */
+.profile-pic:hover {
+    transform: scale(1.1) rotate(5deg); /* Aumenta e gira */
+    box-shadow: 0 15px 40px rgba(0, 245, 195, 0.3); /* Sombra de destaque (usa a cor do dark mode) */
+    filter: grayscale(0%); /* Cor total no hover */
+    border-color: var(--accent-color-hover);
+}
+
+/* No modo claro, a sombra do hover fica azul */
+body:not(.dark-mode) .profile-pic:hover {
+     box-shadow: 0 15px 40px rgba(0, 123, 255, 0.4);
+}
+
+/* Limpar o float para o texto não subir */
+.content::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.content h2 {
+    margin-bottom: 25px;
+}
+
+.content h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-left: 5px solid var(--accent-color);
+    padding-left: 12px;
+    font-size: 1.9em;
+}
+
+.card {
+    background-color: var(--bg-color); /* Fundo um pouco diferente */
     padding: 30px;
     border-radius: 10px;
     margin-bottom: 25px;
@@ -275,31 +283,9 @@ body:not(.dark-mode) .cta-button:hover {
 }
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-body.dark-mode .card:hover {
-    box-shadow: 0 10px 25px rgba(0, 245, 195, 0.1);
+    box-shadow: var(--card-shadow);
 }
 
-.profile-pic {
-    max-width: 200px;
-    height: auto;
-    border-radius: 50%;
-    float: right;
-    margin: 0 0 20px 30px;
-    border: 5px solid var(--accent-color);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.profile-pic:hover {
-    transform: scale(1.05) rotate(3deg);
-    box-shadow: 0 8px 30px rgba(0, 245, 195, 0.3);
-}
-
-.tips {
-    background-color: var(--bg-color);
-    border-left: 5px solid var(--accent-color);
-}
 
 /* --- 9. Rodapé --- */
 footer {
@@ -315,12 +301,7 @@ footer p {
     opacity: 0.8;
 }
 
-/* --- 10. Animações e Responsividade --- */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
+/* --- 10. Responsividade --- */
 @media (max-width: 768px) {
     header .container {
         flex-direction: column;
@@ -336,15 +317,15 @@ footer p {
         width: 100%;
     }
 
-    .banner { padding: 60px 0; }
-    .banner h2 { font-size: 2.2em; }
-    .banner p { font-size: 1.1em; }
+    .content, .card {
+        padding: 25px;
+    }
 
-    .content, .card { padding: 25px; }
-
+    /* Foto em telas menores */
     .profile-pic {
-        float: none;
-        display: block;
-        margin: 0 auto 25px;
+        float: none; /* Em telas menores, a imagem não flutua */
+        display: block; /* Ocupa a largura total */
+        margin: 20px auto 30px auto; /* Centraliza a imagem */
+        max-width: 250px; /* Tamanho ajustado */
     }
 }
