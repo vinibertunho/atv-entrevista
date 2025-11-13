@@ -1,7 +1,5 @@
-/* --- 1. Importação da Fonte --- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-/* --- 2. Variáveis de Tema (Light Mode é o Padrão) --- */
 :root {
     --bg-color: #f4f6f8;
     --content-bg: #ffffff;
@@ -17,7 +15,6 @@
     --card-border: 1px solid #e0e0e0;
 }
 
-/* --- 3. Tema Escuro (Dark Mode) --- */
 body.dark-mode {
     --bg-color: #121729;
     --content-bg: #1e253c;
@@ -33,7 +30,6 @@ body.dark-mode {
     --card-border: 1px solid #3a476a;
 }
 
-/* --- 4. Estilos Globais --- */
 * {
     margin: 0;
     padding: 0;
@@ -69,6 +65,7 @@ a {
     text-decoration: none;
     transition: color 0.3s ease;
 }
+
 a:hover {
     color: var(--accent-color-hover);
 }
@@ -78,7 +75,6 @@ img {
     height: auto;
 }
 
-/* --- 5. Header e Navegação --- */
 header {
     background: var(--header-bg);
     color: var(--header-text);
@@ -100,6 +96,7 @@ header .logo h1 {
     margin: 0;
     font-size: 26px;
 }
+
 header .logo a {
     color: var(--header-text);
     text-decoration: none;
@@ -125,7 +122,7 @@ header nav a {
     opacity: 0.9;
 }
 
-header nav a::after { /* Efeito de linha animada */
+header nav a::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -138,16 +135,17 @@ header nav a::after { /* Efeito de linha animada */
     transition: transform 0.3s ease-out;
     transform-origin: bottom left;
 }
+
 header nav a:hover,
 header nav a.active {
     opacity: 1;
 }
+
 header nav a:hover::after,
 header nav a.active::after {
     transform: scaleX(1);
 }
 
-/* --- 6. Seletor de Tema (O Switch) --- */
 .theme-switcher {
     position: relative;
     display: inline-block;
@@ -175,7 +173,7 @@ header nav a.active::after {
 
 .slider:before {
     position: absolute;
-    content: "";
+    content: "☀️";
     height: 20px;
     width: 20px;
     left: 3px;
@@ -183,17 +181,13 @@ header nav a.active::after {
     background-color: white;
     transition: 0.4s;
     border-radius: 50%;
-}
-
-/* Efeito "sol/lua" */
-.slider:before {
-    content: '☀️';
     font-size: 14px;
     text-align: center;
     line-height: 20px;
 }
+
 body.dark-mode .slider:before {
-    content: '🌙';
+    content: "🌙";
 }
 
 input:checked + .slider {
@@ -204,7 +198,6 @@ input:checked + .slider:before {
     transform: translateX(24px);
 }
 
-/* --- 7. Conteúdo Principal --- */
 .banner {
     background-image:
         linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
@@ -217,18 +210,21 @@ input:checked + .slider:before {
     margin-bottom: 40px;
     animation: fadeIn 1.5s ease;
 }
+
 .banner h2 {
     font-size: 3em;
     font-weight: 700;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
+
 .banner p {
     font-size: 1.4em;
     font-weight: 300;
     opacity: 0.9;
 }
-.cta-button { /* Botão interativo */
+
+.cta-button {
     display: inline-block;
     background-color: var(--accent-color);
     color: var(--bg-color);
@@ -239,21 +235,22 @@ input:checked + .slider:before {
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 245, 195, 0.2);
 }
+
 .cta-button:hover {
     background-color: var(--accent-color-hover);
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0, 245, 195, 0.4);
 }
+
 body:not(.dark-mode) .cta-button {
     color: #fff;
     box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
 }
+
 body:not(.dark-mode) .cta-button:hover {
     box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
 }
 
-
-/* --- 8. Seções de Conteúdo e Cards --- */
 .content {
     background-color: var(--content-bg);
     padding: 40px;
@@ -261,11 +258,12 @@ body:not(.dark-mode) .cta-button:hover {
     box-shadow: var(--card-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .content:hover {
     transform: translateY(-5px);
 }
 
-.card { /* Estilo de card para as seções */
+.card {
     background-color: var(--content-bg);
     padding: 30px;
     border-radius: 10px;
@@ -273,10 +271,12 @@ body:not(.dark-mode) .cta-button:hover {
     border: var(--card-border);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
+
 body.dark-mode .card:hover {
     box-shadow: 0 10px 25px rgba(0, 245, 195, 0.1);
 }
@@ -291,6 +291,7 @@ body.dark-mode .card:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+
 .profile-pic:hover {
     transform: scale(1.05) rotate(3deg);
     box-shadow: 0 8px 30px rgba(0, 245, 195, 0.3);
@@ -301,7 +302,6 @@ body.dark-mode .card:hover {
     border-left: 5px solid var(--accent-color);
 }
 
-/* --- 9. Rodapé --- */
 footer {
     background-color: var(--footer-bg);
     color: var(--footer-text);
@@ -310,12 +310,12 @@ footer {
     margin-top: 50px;
     border-top: 4px solid var(--accent-color);
 }
+
 footer p {
     margin: 5px 0;
     opacity: 0.8;
 }
 
-/* --- 10. Animações e Responsividade --- */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -326,25 +326,100 @@ footer p {
         flex-direction: column;
         gap: 15px;
     }
+
     header nav {
         flex-direction: column;
         width: 100%;
         gap: 10px;
     }
+
     header nav ul {
         justify-content: center;
         width: 100%;
     }
 
-    .banner { padding: 60px 0; }
-    .banner h2 { font-size: 2.2em; }
-    .banner p { font-size: 1.1em; }
+    .banner {
+        padding: 60px 0;
+    }
 
-    .content, .card { padding: 25px; }
+    .banner h2 {
+        font-size: 2.2em;
+    }
+
+    .banner p {
+        font-size: 1.1em;
+    }
+
+    .content, .card {
+        padding: 25px;
+    }
 
     .profile-pic {
         float: none;
         display: block;
         margin: 0 auto 25px;
+    }
+
+    header .logo h1 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    header {
+        padding: 10px 0;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .content {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .banner {
+        padding: 40px 0;
+    }
+
+    .banner h2 {
+        font-size: 1.8em;
+    }
+
+    .banner p {
+        font-size: 1em;
+    }
+
+    .profile-pic {
+        max-width: 160px;
+        margin: 15px auto 25px auto;
+    }
+
+    footer {
+        padding: 25px 0;
+        font-size: 14px;
+    }
+
+    .theme-switcher {
+        width: 40px;
+        height: 22px;
+    }
+
+    .slider:before {
+        height: 16px;
+        width: 16px;
+        font-size: 12px;
+        line-height: 16px;
     }
 }

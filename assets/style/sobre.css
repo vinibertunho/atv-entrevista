@@ -1,7 +1,5 @@
-/* --- 1. Importação da Fonte --- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-/* --- 2. Variáveis de Tema (Light Mode é o Padrão) --- */
 :root {
     --bg-color: #f4f6f8;
     --content-bg: #ffffff;
@@ -17,7 +15,6 @@
     --card-border: 1px solid #e0e0e0;
 }
 
-/* --- 3. Tema Escuro (Dark Mode) --- */
 body.dark-mode {
     --bg-color: #121729;
     --content-bg: #1e253c;
@@ -33,7 +30,6 @@ body.dark-mode {
     --card-border: 1px solid #3a476a;
 }
 
-/* --- 4. Estilos Globais --- */
 * {
     margin: 0;
     padding: 0;
@@ -69,6 +65,7 @@ a {
     text-decoration: none;
     transition: color 0.3s ease;
 }
+
 a:hover {
     color: var(--accent-color-hover);
 }
@@ -78,7 +75,6 @@ img {
     height: auto;
 }
 
-/* --- 5. Header e Navegação --- */
 header {
     background: var(--header-bg);
     color: var(--header-text);
@@ -100,6 +96,7 @@ header .logo h1 {
     margin: 0;
     font-size: 26px;
 }
+
 header .logo a {
     color: var(--header-text);
     text-decoration: none;
@@ -125,7 +122,7 @@ header nav a {
     opacity: 0.9;
 }
 
-header nav a::after { /* Efeito de linha animada */
+header nav a::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -138,16 +135,17 @@ header nav a::after { /* Efeito de linha animada */
     transition: transform 0.3s ease-out;
     transform-origin: bottom left;
 }
+
 header nav a:hover,
 header nav a.active {
     opacity: 1;
 }
+
 header nav a:hover::after,
 header nav a.active::after {
     transform: scaleX(1);
 }
 
-/* --- 6. Seletor de Tema (O Switch) --- */
 .theme-switcher {
     position: relative;
     display: inline-block;
@@ -175,7 +173,7 @@ header nav a.active::after {
 
 .slider:before {
     position: absolute;
-    content: "";
+    content: "☀️";
     height: 20px;
     width: 20px;
     left: 3px;
@@ -183,15 +181,13 @@ header nav a.active::after {
     background-color: white;
     transition: 0.4s;
     border-radius: 50%;
-    /* Efeito sol/lua */
-    content: '☀️';
     font-size: 14px;
     text-align: center;
     line-height: 20px;
 }
 
 body.dark-mode .slider:before {
-    content: '🌙';
+    content: "🌙";
 }
 
 input:checked + .slider {
@@ -202,11 +198,9 @@ input:checked + .slider:before {
     transform: translateX(24px);
 }
 
-/* --- 7. Conteúdo Principal --- */
 main {
     padding: 40px 0;
 }
-
 
 .fotoEdu {
     width: 100px;
@@ -219,6 +213,7 @@ main {
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.5s ease-in-out, filter 0.5s ease;
     filter: grayscale(20%);
 }
+
 .content {
     background-color: var(--content-bg);
     padding: 40px;
@@ -227,34 +222,29 @@ main {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* --- 8. ESTILOS ESPECÍFICOS DA PÁGINA "SOBRE" --- */
-
 .profile-pic {
     max-width: 280px;
     height: auto;
     border-radius: 50%;
-    float: right; /* Flutua à direita do texto */
-    margin: 0 0 25px 40px; /* Margem para não colar no texto */
-    border: 6px solid var(--accent-color); /* Borda com cor de destaque */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Sombra */
+    float: right;
+    margin: 0 0 25px 40px;
+    border: 6px solid var(--accent-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.5s ease-in-out, filter 0.5s ease;
-    filter: grayscale(20%); /* Começa um pouco dessaturada */
+    filter: grayscale(20%);
 }
 
-/* Animação no hover */
 .profile-pic:hover {
-    transform: scale(1.1) rotate(5deg); /* Aumenta e gira */
-    box-shadow: 0 15px 40px rgba(0, 245, 195, 0.3); /* Sombra de destaque (usa a cor do dark mode) */
-    filter: grayscale(0%); /* Cor total no hover */
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 15px 40px rgba(0, 245, 195, 0.3);
+    filter: grayscale(0%);
     border-color: var(--accent-color-hover);
 }
 
-/* No modo claro, a sombra do hover fica azul */
 body:not(.dark-mode) .profile-pic:hover {
      box-shadow: 0 15px 40px rgba(0, 123, 255, 0.4);
 }
 
-/* Limpar o float para o texto não subir */
 .content::after {
     content: "";
     display: table;
@@ -274,20 +264,19 @@ body:not(.dark-mode) .profile-pic:hover {
 }
 
 .card {
-    background-color: var(--bg-color); /* Fundo um pouco diferente */
+    background-color: var(--bg-color);
     padding: 30px;
     border-radius: 10px;
     margin-bottom: 25px;
     border: var(--card-border);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .card:hover {
     transform: translateY(-5px);
     box-shadow: var(--card-shadow);
 }
 
-
-/* --- 9. Rodapé --- */
 footer {
     background-color: var(--footer-bg);
     color: var(--footer-text);
@@ -296,22 +285,24 @@ footer {
     margin-top: 50px;
     border-top: 4px solid var(--accent-color);
 }
+
 footer p {
     margin: 5px 0;
     opacity: 0.8;
 }
 
-/* --- 10. Responsividade --- */
 @media (max-width: 768px) {
     header .container {
         flex-direction: column;
         gap: 15px;
     }
+
     header nav {
         flex-direction: column;
         width: 100%;
         gap: 10px;
     }
+
     header nav ul {
         justify-content: center;
         width: 100%;
@@ -321,11 +312,73 @@ footer p {
         padding: 25px;
     }
 
-    /* Foto em telas menores */
     .profile-pic {
-        float: none; /* Em telas menores, a imagem não flutua */
-        display: block; /* Ocupa a largura total */
-        margin: 20px auto 30px auto; /* Centraliza a imagem */
-        max-width: 250px; /* Tamanho ajustado */
+        float: none;
+        display: block;
+        margin: 20px auto 30px auto;
+        max-width: 250px;
+    }
+
+    header .logo h1 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    header {
+        padding: 10px 0;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .content {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.2em;
+    }
+
+    .profile-pic {
+        max-width: 180px;
+        margin: 15px auto 25px auto;
+    }
+
+    .fotoEdu {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 15px auto;
+        display: block;
+        float: none;
+    }
+
+    footer {
+        padding: 25px 0;
+        font-size: 14px;
+    }
+
+    .theme-switcher {
+        width: 40px;
+        height: 22px;
+    }
+
+    .slider:before {
+        height: 16px;
+        width: 16px;
+        font-size: 12px;
+        line-height: 16px;
     }
 }
